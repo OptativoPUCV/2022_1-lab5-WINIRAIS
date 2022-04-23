@@ -50,3 +50,23 @@ treemap.c:73:8: note: expected 'TreeMap * {aka struct TreeMap *}' but argument i
 cc1.exe: all warnings being treated as errors
 Compilation failed
 3c8b653
+Sat Apr 23 00:22:34 HSP 2022: 
+ treemap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:0:
+treemap.c: In function 'searchTreeMap':
+treemap.c:77:30: error: passing argument 1 of 'searchTreeMap' from incompatible pointer type [-Werror=incompatible-pointer-types]
+         return searchTreeMap(tree->current->left,key);
+                              ^~~~
+treemap.c:73:8: note: expected 'TreeMap * {aka struct TreeMap *}' but argument is of type 'TreeNode * {aka struct TreeNode *}'
+ Pair * searchTreeMap(TreeMap * tree, void* key) {
+        ^~~~~~~~~~~~~
+treemap.c:78:31: error: passing argument 1 of 'searchTreeMap' from incompatible pointer type [-Werror=incompatible-pointer-types]
+     else return searchTreeMap(tree->current->right,key);
+                               ^~~~
+treemap.c:73:8: note: expected 'TreeMap * {aka struct TreeMap *}' but argument is of type 'TreeNode * {aka struct TreeNode *}'
+ Pair * searchTreeMap(TreeMap * tree, void* key) {
+        ^~~~~~~~~~~~~
+cc1.exe: all warnings being treated as errors
+Compilation failed
+b4beb83
