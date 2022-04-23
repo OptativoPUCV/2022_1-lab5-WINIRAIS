@@ -54,7 +54,7 @@ void insertTreeMap(TreeMap * tree, void* key, void * value) {
             TreeAux = TreeAux->left;
         }else{ 
             if(resultado == 0){
-                TreeAux = TreeAux->left;
+                TreeAux = TreeAux->right;
             }else return;
         }
     }
