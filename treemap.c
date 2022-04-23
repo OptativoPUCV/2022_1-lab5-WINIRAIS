@@ -72,11 +72,12 @@ void eraseTreeMap(TreeMap * tree, void* key){
 
 Pair * searchTreeMap(TreeMap * tree, void* key) {
     int resultado = tree->lower_than(key,tree->current->pair->key);
-    if (tree == NULL || (is_equal(tree,key,tree->current->pair->key) == 1)) return tree->current->pair;
-    if(resultado == 1)
-        return searchTreeMap(tree->current->left,key);
-    else return searchTreeMap(tree->current->right,key);
-
+    while (tree != NULL || (is_equal(tree,key,tree->current->pair->key) == 0)){ 
+        if(resultado == 1)
+            tree = tree->current->left;
+        else tree = tree->current->right;
+    }
+    return tree->current->pair;
 }
 
 
