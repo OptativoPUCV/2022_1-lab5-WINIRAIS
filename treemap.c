@@ -114,8 +114,6 @@ void removeNode(TreeMap * tree, TreeNode* node) {
                     if(parent->right == node) parent->right = son;
                 }
             }
-             
-            printf("\nentro\n");
         }
     }
 }
