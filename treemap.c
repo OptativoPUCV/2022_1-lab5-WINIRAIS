@@ -100,11 +100,14 @@ void removeNode(TreeMap * tree, TreeNode* node) {
             node->pair->value = auxNode->pair->value;//Reemplace los datos (key,value) de *node* con los del nodo "minimum"
             removeNode(tree,node);//Elimine el nodo minimum
             return;
-        }else{//se supone que en este momento se supone que tiene hijos pero no 2 es decir solo qtendria 1 hijo
+        }else{//se supone que en este momento se supone que tiene hijos pero no 2 es decir solo tendria 1 hijo
             TreeNode *parent = node->parent; //info del nodo padre se la paso a un auxiliar nodo padre.
             TreeNode *son = node->right; //paso la informacion de un hijo en este caso el de la derecha
-            if(son == NULL ) parent = son->left;
-            if(parent == NULL) son = tree->root;
+            if(son == NULL ) son = node->left;//si la derecha fuera nula le asigno la izquiera
+            son->parent = parent; // El padre del nodo pasa a ser padre 
+            if(parent == NULL){ 
+                tree->root = son; //si es que el papa fuera nulo la raiz de mi treemap seria solamente el hijo
+            }
         }
     }
 }
