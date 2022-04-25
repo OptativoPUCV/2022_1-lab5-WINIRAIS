@@ -104,12 +104,10 @@ void removeNode(TreeMap * tree, TreeNode* node) {
             TreeNode *parent = node->parent; //info del nodo padre se la paso a un auxiliar nodo padre.
             TreeNode *son = node->right; //paso la informacion de un hijo en este caso el de la derecha
             if(son == NULL ) son = node->left;//si la derecha fuera nula le asigno la izquiera
-            son->parent = parent; // El padre del nodo pasa a ser padre 
-            if(parent == NULL){ 
-                tree->root = son; //si es que el papa fuera nulo la raiz de mi treemap seria solamente el hijo
-            }
-            if(parent->left == node->left) parent->left = son;
-            if(parent->right == node->right) parent->right = son; 
+            son->parent = parent; // El padre del nodo pasa a ser padre de su hijo
+            if(parent == NULL){ tree->root = son; //si es que el papa fuera nulo la raiz de mi treemap seria solamente el hijo
+            if(parent->left == node) parent->left = son;
+            if(parent->right == node) parent->right = son; 
             printf("\nentro\n");
         }
     }
