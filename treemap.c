@@ -107,10 +107,10 @@ void removeNode(TreeMap * tree, TreeNode* node) {
             son->parent = parent; // El padre del nodo pasa a ser padre 
             if(parent == NULL){ 
                 tree->root = son; //si es que el papa fuera nulo la raiz de mi treemap seria solamente el hijo
-            }else{
-                if(parent->left == node->left) parent->left = son;
-                if(parent->right == node->right) parent->right = son; 
             }
+            if(parent->left == node->left) parent->left = son;
+            if(parent->right == node->right) parent->right = son; 
+            
         }
     }
 }
