@@ -110,7 +110,7 @@ void removeNode(TreeMap * tree, TreeNode* node) {
             }
             if(parent->left == node->left) parent->left = son;
             if(parent->right == node->right) parent->right = son; 
-            
+            printf("\nentro\n");
         }
     }
 }
