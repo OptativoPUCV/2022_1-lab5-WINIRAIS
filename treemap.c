@@ -175,6 +175,7 @@ Pair * nextTreeMap(TreeMap * tree) {
         tree->current = aux;// tree->current = 'x' del libro :)
         aux = aux->parent;
     }
+    tree->current = aux;
     if(aux == NULL) return NULL;
     return aux->pair;
 }
