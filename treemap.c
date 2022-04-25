@@ -108,9 +108,13 @@ void removeNode(TreeMap * tree, TreeNode* node) {
             if(parent == NULL){
                  tree->root = son; //si es que el papa fuera nulo la raiz de mi treemap seria solamente el hijo
             }else{
-                if(parent->left == node ) parent->left = son;
+                if(parent->left == node ){
+                   parent->left = son; 
+                }else{
+                    if(parent->right == node) parent->right = son;
+                }
             }
-            if(parent->right == node) parent->right = son; 
+             
             printf("\nentro\n");
         }
     }
