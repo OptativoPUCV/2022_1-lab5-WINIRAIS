@@ -98,8 +98,8 @@ void removeNode(TreeMap * tree, TreeNode* node) {
             auxNode = minimum(auxNode);//obtenga el menor nodo del subárbol
             node->pair->key = auxNode->pair->key;//Reemplace los datos (key,value) de *node* con los del nodo "minimum"
             node->pair->value = auxNode->pair->value;//Reemplace los datos (key,value) de *node* con los del nodo "minimum"
-            removeNode(tree,node);//Elimine el nodo minimum
-            //return;
+            eraseTreeMap(tree,node);//Elimine el nodo minimum
+            return;
         }else{//se supone que en este momento se supone que tiene hijos pero no 2 es decir solo tendria 1 hijo
             TreeNode *parent = node->parent; //info del nodo padre se la paso a un auxiliar nodo padre.
             TreeNode *son = node->right; //paso la informacion de un hijo en este caso el de la derecha
