@@ -170,10 +170,11 @@ Pair * nextTreeMap(TreeMap * tree) {
         tree->current = minimum(aux);
         return tree->current->pair;
     }
-    TreeNode *aux = tree->current->parent;//y
+    TreeNode *aux = tree->current->parent;//'y' del libro
     while ((aux != NULL) &&(tree->current == aux->right)){
-        tree->current = aux;
+        tree->current = aux;// tree->current = 'x' del libro :)
         aux = aux->parent;
     }
+    if(aux == NULL) return NULL;
     return aux->pair;
 }
