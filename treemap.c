@@ -99,7 +99,7 @@ void removeNode(TreeMap * tree, TreeNode* node) {
             node->pair->key = auxNode->pair->key;//Reemplace los datos (key,value) de *node* con los del nodo "minimum"
             node->pair->value = auxNode->pair->value;//Reemplace los datos (key,value) de *node* con los del nodo "minimum"
             eraseTreeMap(tree,node);//Elimine el nodo minimum
-            return;
+            return;// lo coloco por si acaso ya que hay muchos else
         }else{//se supone que en este momento se supone que tiene hijos pero no 2 es decir solo tendria 1 hijo
             TreeNode *parent = node->parent; //info del nodo padre se la paso a un auxiliar nodo padre.
             TreeNode *son = node->right; //paso la informacion de un hijo en este caso el de la derecha
@@ -108,7 +108,7 @@ void removeNode(TreeMap * tree, TreeNode* node) {
             if(parent == NULL){
                  tree->root = son; //si es que el papa fuera nulo la raiz de mi treemap seria solamente el hijo
             }else{
-                if(parent->left == node ){
+                if(parent->left == node ){// probr el node solo por si acaso, y asi funciono pero no se por que ?
                    parent->left = son; 
                 }else{
                     if(parent->right == node) parent->right = son;
@@ -116,6 +116,7 @@ void removeNode(TreeMap * tree, TreeNode* node) {
             }
         }
     }
+    //un total alivio hacer este codigo
 }
 
 void eraseTreeMap(TreeMap * tree, void* key){
@@ -156,7 +157,9 @@ Pair * upperBound(TreeMap * tree, void* key) {
 }
 
 Pair * firstTreeMap(TreeMap * tree) {
-    return NULL;
+    TreeMap * aux = tree->root;
+    minimum(aux); 
+    return aux->current->pair;
 }
 
 Pair * nextTreeMap(TreeMap * tree) {

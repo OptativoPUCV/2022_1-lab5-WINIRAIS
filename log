@@ -497,3 +497,20 @@ Sun Apr 24 21:50:06 HSP 2022:
  tests:  18|3
 total_score: 40/70
 7f3cc85
+Sun Apr 24 21:56:19 HSP 2022: 
+ treemap.c | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
+In file included from test.c:4:0:
+treemap.c: In function 'firstTreeMap':
+treemap.c:160:21: error: initialization from incompatible pointer type [-Werror=incompatible-pointer-types]
+     TreeMap * aux = tree->root;
+                     ^~~~
+treemap.c:161:13: error: passing argument 1 of 'minimum' from incompatible pointer type [-Werror=incompatible-pointer-types]
+     minimum(aux);
+             ^~~
+treemap.c:81:12: note: expected 'TreeNode * {aka struct TreeNode *}' but argument is of type 'TreeMap * {aka struct TreeMap *}'
+ TreeNode * minimum(TreeNode * x){
+            ^~~~~~~
+cc1.exe: all warnings being treated as errors
+Compilation failed
+7ef1510
