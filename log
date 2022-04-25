@@ -514,3 +514,9 @@ treemap.c:81:12: note: expected 'TreeNode * {aka struct TreeNode *}' but argumen
 cc1.exe: all warnings being treated as errors
 Compilation failed
 7ef1510
+Sun Apr 24 21:58:42 HSP 2022: 
+ treemap.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+ tests:  18|3
+total_score: 40/70
+02bdbe1
