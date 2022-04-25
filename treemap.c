@@ -87,9 +87,22 @@ TreeNode * minimum(TreeNode * x){
 
 
 void removeNode(TreeMap * tree, TreeNode* node) {
-    if((node->left == NULL) && (node->right == NULL)){
+    if((node->left == NULL) && (node->right == NULL)){//no tiene hijos
         TreeNode *parent = node->parent;
-        if(parent == NULL) tree->root == NULL;
+        //if(parent == NULL) tree->root == NULL;
+        if(parent->left == node) parent->left = NULL;
+        if(parent->right == node) parent->right = NULL;
+    }else{//aprovecho de verificar altiro con los dos hijos 
+        if((node->left != NULL) && (node->right != NULL)){//tiene 2 hijos
+            TreeNode *auxNode = node->right; //Descienda al hijo derecho
+            auxNode = minimum(auxNode);//obtenga el menor nodo del subárbol
+            node->pair->key = auxNode->pair->key;//Reemplace los datos (key,value) de *node* con los del nodo "minimum"
+            node->pair->value = auxNode->pair->value;//Reemplace los datos (key,value) de *node* con los del nodo "minimum"
+            removeNode(tree,node);//Elimine el nodo minimum
+            return;
+        }//else{//se supone que en este momento se supone que tiene hijos pero no 2 es decir solo qtendria 1 hijo
+
+        //}
     }
 }
 
